@@ -1,0 +1,10 @@
+FROM nginx:latest
+
+# Скопировать файлы приложения в папку /usr/share/nginx/html
+COPY . /usr/share/nginx/html
+
+# Изменить конфигурационный файл nginx 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Перезапустить nginx
+CMD ["nginx", "-g", "daemon off;"]
